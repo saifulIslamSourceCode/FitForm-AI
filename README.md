@@ -67,7 +67,7 @@ fitForm AI/
 ## Setup and Installation
 Setup_and_Installation:
   Prerequisites:
-    - Node.js v16 or higher (https://nodejs.org/)
+- Node.js v16 or higher (https://nodejs.org/)
     - npm (comes with Node.js)
     - PostgreSQL (local or remote) (https://www.postgresql.org/download/)
     - Git (https://git-scm.com/downloads)
