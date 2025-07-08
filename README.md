@@ -59,6 +59,7 @@ Smart AI Fitness Tracker is a web application designed to help users manage thei
     - prisma:
       - schema.prisma
     
+  - docker-compose.yml
   - README.md
 ---
 
