@@ -1,0 +1,49 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  height   Int?
+  weight   Int?
+  location String?
+
+  // one‑to‑one
+  goal Goal? @relation("UserGoal")
+
+  // one‑to‑many
+  foodLogs FoodLog[] @relation("UserFoodLogs")
+}
+
+model Goal {
+  id     Int  @id @default(autoincrement())
+  userId Int  @unique // ⬅️ must be unique for 1‑to‑1
+  user   User @relation("UserGoal", fields: [userId], references: [id])
+
+  targetKg Float
+  duration Int // days
+  dailyCal Float
+  proteinG Float
+  carbsG   Float
+  fiberG   Float
+}
+
+model FoodLog {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  user   User @relation("UserFoodLogs", fields: [userId], references: [id])
+
+  date     DateTime @default(now())
+  food     String
+  calories Float
+  carbs    Float
+  protein  Float
+  fiber    Float
+}
