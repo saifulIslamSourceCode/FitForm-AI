@@ -47,17 +47,18 @@ Smart AI Fitness Tracker is a web application designed to help users manage thei
 
 ## Folder Structure
 
-fitForm_AI:
-  client:
+- # fitForm_AI:
+  - client:
     - src/
     - package.json
     - vite.config.ts
-  server:
+
+  - server:
     - src/
     - package.json
-    prisma:
+    - prisma:
       - schema.prisma
-  - .gitignore
+    
   - README.md
 
 
