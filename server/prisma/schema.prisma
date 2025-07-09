@@ -13,6 +13,8 @@ model User {
   password String
   height   Int?
   weight   Int?
+  gender   String?
+  age      Int?
   location String?
 
   // one‑to‑one
