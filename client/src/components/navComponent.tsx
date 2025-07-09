@@ -3,11 +3,6 @@ import { NavLink } from "react-router-dom";
 
 const links = [
     {
-        name: "Home",
-        to: "/home",     // <-- add leading slash
-        active: "home"
-    },
-    {
         name: "Dashboard",
         to: "/dashboard",
         active: "dashboard"
