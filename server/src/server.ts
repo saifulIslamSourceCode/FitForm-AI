@@ -1,23 +1,16 @@
 import express, { Request, Response } from 'express';
-import cors from 'cors'; // ✅ 1. Import CORS
+import cors from 'cors'; //  Import CORS
 import { PrismaClient } from '@prisma/client';
+import authRoutes from "./routes/auth";
 
 const prisma = new PrismaClient();
 
 const app = express();
-const PORT = 3000;
 
-app.use(cors());          // ✅ 2. Enable CORS
-app.use(express.json());  // (Optional but good practice)
+app.use(cors());          //  Enable CORS
+app.use(express.json());
+app.use("/api", authRoutes);
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World');
-});
 
-import userRoutes from './routes/auth';
-
-app.use('/api/users', userRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

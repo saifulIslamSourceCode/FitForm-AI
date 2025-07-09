@@ -24,6 +24,11 @@ const links = [
     },
 ]
 
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+};
+
 const NavComponent = () => {
     return (
         <nav className="w-52 bg-gray-100 p-4 h-screen flex flex-col justify-around">
@@ -45,6 +50,7 @@ const NavComponent = () => {
             </ul>
             <button
                 className="text-red-600 hover:bg-red-100 px-4 py-2 rounded mt-4 cursor-pointer"
+                onClick={handleLogout}
             >
                 Logout
             </button>
